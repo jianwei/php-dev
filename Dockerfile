@@ -58,7 +58,8 @@ RUN ./configure --prefix=/usr/local/nginx  \
                 --with-http_ssl_module \
                 --with-pcre\
                 --with-http_stub_status_module
-RUN make & make install
+RUN make 
+RUN make install
 
 #remove install packages
 WORKDIR /usr/local/src/
