@@ -6,14 +6,14 @@ RUN easy_install supervisor
 
 
 #Install apache
-RUN yum install -y wget apr-util-devel  apr-devel gcc  pcre-devel openssl-devel  make perl 
-WORKDIR /usr/local/src/
-RUN wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.18.tar.gz
-RUN tar zxvf httpd-2.4.18.tar.gz
-WORKDIR /usr/local/src/httpd-2.4.18
-RUN ./configure --prefix=/usr/local/apache2 --enable-so --enable-cgi --enable-proxy --enable-vhost-alias --enable-cache --enable-disk-cache --enable-mem-cache --enable-rewrite --enable-mods-shared=all --enable-usertrack --enable-ssl
-RUN make 
-RUN make install
+#RUN yum install -y wget apr-util-devel  apr-devel gcc  pcre-devel openssl-devel  make perl 
+#WORKDIR /usr/local/src/
+#RUN wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.18.tar.gz
+#RUN tar zxvf httpd-2.4.18.tar.gz
+#WORKDIR /usr/local/src/httpd-2.4.18
+#RUN ./configure --prefix=/usr/local/apache2 --enable-so --enable-cgi --enable-proxy --enable-vhost-alias --enable-cache --enable-disk-cache --enable-mem-cache --enable-rewrite --enable-mods-shared=all --enable-usertrack --enable-ssl
+#RUN make 
+#RUN make install
 
 #install memcached
 RUN yum install -y libevent-devel
