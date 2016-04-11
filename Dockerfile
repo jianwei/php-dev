@@ -15,7 +15,7 @@ RUN easy_install supervisor
 #RUN make 
 #RUN make install
 
-RUN yum install -y wget 
+RUN yum install -y wget gcc
 
 #install memcached
 RUN yum install -y libevent-devel
