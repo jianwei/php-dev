@@ -49,12 +49,13 @@ RUN make
 RUN make install
 RUN cp php.ini-development  /usr/local/php/lib/php.ini
 
-#install pcre
-WORKDIR /usr/local/src
-RUN wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.34.tar.gz 
-RUN tar -zxvf pcre-8.34.tar.gz
-WORKDIR /usr/local/src/pcre-8.34
-RUN ./configure
+RUN yum install pcre-devel openssl-devel zlib zlib-devel
+WORKDIR /usr/local/src/
+RUN wget http://nginx.org/download/nginx-1.9.9.tar.gz
+RUN tar -zxvf nginx-1.9.9.tar.gz
+WORKDIR /usr/local/src/nginx-1.9.9
+RUN ./configure --sbin-path=/usr/local/nginx/nginx --conf-path=/usr/local/nginx/nginx.conf --pid-path=/usr/local/nginx/nginx.pid --with-http_ssl_module --with-pcre --with-zlib --with-openssl –with-http_stub_status_module –with-http_ssl_module
 RUN make & make install
+
 
 
