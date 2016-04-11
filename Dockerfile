@@ -15,7 +15,7 @@ RUN easy_install supervisor
 #RUN make 
 #RUN make install
 
-RUN yum install -y wget gcc
+RUN yum install -y wget make gcc-c++ glibc automake autoconf
 
 #install memcached
 RUN yum install -y libevent-devel
@@ -29,7 +29,7 @@ RUN make install
 
 
 #install php
-RUN yum -y install gcc automake autoconf libtool make gcc-c++ glibc libmcrypt-devel mhash-devel libxslt-devel  libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel
+RUN yum -y install   libtool  libmcrypt-devel mhash-devel libxslt-devel  libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel
 WORKDIR /usr/local/src/
 RUN wget -c http://cn2.php.net/get/php-5.5.33.tar.gz/from/this/mirror -O php-5.5.33.tar.gz
 RUN tar zxvf php-5.5.33.tar.gz
