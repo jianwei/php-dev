@@ -49,3 +49,12 @@ RUN make
 RUN make install
 RUN cp php.ini-development  /usr/local/php/lib/php.ini
 
+#install pcre
+WORKDIR /usr/local/src
+RUN wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.34.tar.gz 
+RUN tar -zxvf pcre-8.34.tar.gz
+WORKDIR /usr/local/src/pcre-8.34
+RUN ./configure
+RUN make & make install
+
+
