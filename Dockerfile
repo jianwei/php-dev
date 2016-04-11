@@ -16,7 +16,7 @@ RUN make
 RUN make install
 
 #install memcached
-RUN　yum install -y libevent-devel
+RUN yum install -y libevent-devel
 WORKDIR /usr/local/src
 RUN wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
 RUN tar zxvf memcached-1.4.25.tar.gz
