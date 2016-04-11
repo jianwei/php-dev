@@ -15,6 +15,8 @@ RUN easy_install supervisor
 #RUN make 
 #RUN make install
 
+RUN yum install -y wget 
+
 #install memcached
 RUN yum install -y libevent-devel
 WORKDIR /usr/local/src
