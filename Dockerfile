@@ -15,7 +15,8 @@ RUN ./configure --prefix=/usr/local/apache2 --enable-so --enable-cgi --enable-pr
 RUN make 
 RUN make install
 
-#install memcached 
+#install memcached
+RUN　yun install -y libevent-devel
 WORKDIR /usr/local/src
 RUN wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
 RUN tar zxvf memcached-1.4.25.tar.gz
