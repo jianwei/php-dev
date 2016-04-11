@@ -29,22 +29,39 @@ RUN make install
 
 
 #install php
-RUN yum -y install   libtool  libmcrypt-devel mhash-devel libxslt-devel  libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel
+RUN yum -y  install libtool  libmcrypt-devel mhash-devel \
+                    libxslt-devel  libjpeg libjpeg-devel \
+                    libpng libpng-devel freetype freetype-devel \
+                    libxml2 libxml2-devel zlib zlib-devel glibc \
+                    glibc-devel glib2 glib2-devel bzip2 bzip2-devel \
+                    ncurses ncurses-devel curl curl-devel e2fsprogs \
+                    e2fsprogs-devel krb5 krb5-devel libidn libidn-devel \
+                    openssl openssl-devel
 WORKDIR /usr/local/src/
 RUN wget -c http://cn2.php.net/get/php-5.5.33.tar.gz/from/this/mirror -O php-5.5.33.tar.gz
 RUN tar zxvf php-5.5.33.tar.gz
-
-#install libmcrypt-2.5.7.tar.gz 
-#WORKDIR /usr/local/src/
-#RUN wget ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/attic/libmcrypt/libmcrypt-2.5.7.tar.gz 
-#RUN tar -zxvf libmcrypt-2.5.7.tar.gz   
-#WORKDIR /usr/local/src/libmcrypt-2.5.7  
-#RUN ./configure --prefix=/usr/local/libmcrypt  
-#RUN make && make install
-
-# build php
 WORKDIR /usr/local/src/php-5.5.33
-RUN ./configure --prefix=/usr/local/php  --enable-fpm  --enable-mbstring --disable-pdo --with-curl --disable-debug  --disable-rpath --enable-inline-optimization --with-bz2  --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex  --enable-zip --with-pcre-regex --with-mysql --with-mysqli --with-gd --with-jpeg-dir
+RUN ./configure --prefix=/usr/local/php  \
+                --enable-fpm  \
+                --enable-mbstring \
+                --disable-pdo \
+                --with-curl \
+                --disable-debug  \
+                --disable-rpath \
+                --enable-inline-optimization \
+                --with-bz2  \
+                --with-zlib \
+                --enable-sockets \
+                --enable-sysvsem \
+                --enable-sysvshm \
+                --enable-pcntl \
+                --enable-mbregex  \
+                --enable-zip \
+                --with-pcre-regex \
+                --with-mysql \
+                --with-mysqli \
+                --with-gd \
+                --with-jpeg-dir
 RUN make
 RUN make install
 RUN cp php.ini-development  /usr/local/php/lib/php.ini
