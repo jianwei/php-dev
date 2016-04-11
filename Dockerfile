@@ -17,7 +17,7 @@ RUN make install
 
 #install memcached 
 WORKDIR /usr/local/src
-RUN wget  wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
+RUN wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
 RUN tar zxvf memcached-1.4.25.tar.gz
 WORKDIR /usr/local/src/memcached-1.4.25
 RUN ./configure --prefix=/usr/local/memcached
