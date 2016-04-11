@@ -64,6 +64,6 @@ RUN make install
 #remove install packages
 WORKDIR /usr/local/src/
 RUN rm -fr *
-WORKDIR ~
+WORKDIR /
 
 
