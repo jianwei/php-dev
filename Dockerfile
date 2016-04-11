@@ -35,16 +35,16 @@ RUN wget -c http://cn2.php.net/get/php-5.5.33.tar.gz/from/this/mirror -O php-5.5
 RUN tar zxvf php-5.5.33.tar.gz
 
 #install libmcrypt-2.5.7.tar.gz 
-WORKDIR /usr/local/src/
-RUN wget ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/attic/libmcrypt/libmcrypt-2.5.7.tar.gz 
-RUN tar -zxvf libmcrypt-2.5.7.tar.gz   
-WORKDIR /usr/local/src/libmcrypt-2.5.7  
-RUN ./configure --prefix=/usr/local/libmcrypt  
-RUN make && make install
+#WORKDIR /usr/local/src/
+#RUN wget ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/attic/libmcrypt/libmcrypt-2.5.7.tar.gz 
+#RUN tar -zxvf libmcrypt-2.5.7.tar.gz   
+#WORKDIR /usr/local/src/libmcrypt-2.5.7  
+#RUN ./configure --prefix=/usr/local/libmcrypt  
+#RUN make && make install
 
 # build php
 WORKDIR /usr/local/src/php-5.5.33
-RUN ./configure --prefix=/usr/local/php  --enable-fpm --with-mcrypt=/usr/lib/libmcrypt --enable-mbstring --disable-pdo --with-curl --disable-debug  --disable-rpath --enable-inline-optimization --with-bz2  --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex --with-mhash --enable-zip --with-pcre-regex --with-mysql --with-mysqli --with-gd --with-jpeg-dir
+RUN ./configure --prefix=/usr/local/php  --enable-fpm  --enable-mbstring --disable-pdo --with-curl --disable-debug  --disable-rpath --enable-inline-optimization --with-bz2  --with-zlib --enable-sockets --enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex  --enable-zip --with-pcre-regex --with-mysql --with-mysqli --with-gd --with-jpeg-dir
 RUN make
 RUN make install
 RUN cp php.ini-development  /usr/local/php/lib/php.ini
