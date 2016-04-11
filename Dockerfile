@@ -57,7 +57,7 @@ WORKDIR /usr/local/src/nginx-1.9.9
 RUN ./configure --prefix=/usr/local/nginx  \
                 --with-http_ssl_module \
                 --with-pcre\
-                --with-http_stub_status_module\
+                --with-http_stub_status_module
 RUN make & make install
 
 #remove install packages
