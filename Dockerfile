@@ -55,9 +55,6 @@ RUN wget http://nginx.org/download/nginx-1.9.9.tar.gz
 RUN tar -zxvf nginx-1.9.9.tar.gz
 WORKDIR /usr/local/src/nginx-1.9.9
 RUN ./configure --prefix=/usr/local/nginx  \
-                --sbin-path=/usr/local/nginx/nginx \
-                --conf-path=/usr/local/nginx/nginx.conf \
-                --pid-path=/usr/local/nginx/nginx.pid \
                 --with-http_ssl_module \
                 --with-pcre \
                 --with-zlib \
