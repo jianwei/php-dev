@@ -118,4 +118,6 @@ WORKDIR /usr/local/src/
 RUN rm -fr *
 WORKDIR /
 
+CMD supervisord  -c /etc/supervisord.conf
 
+#shell docker run -d -p 127.0.0.1:33301:22 centos6-ssh
