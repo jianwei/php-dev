@@ -120,6 +120,6 @@ WORKDIR /
 
 EXPOSE 22 80 443
 #CMD supervisord  -c /etc/supervisord.conf
-CMD ["supervisord -c /etc/supervisord.conf"]
+CMD ["/usr/bin/supervisord -c /etc/supervisord.conf"]
 
 #shell docker run -it -v /root/conf:/mnt/www:ro  --privileged=true   a2bc51f2efb6
