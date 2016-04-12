@@ -17,7 +17,9 @@ RUN easy_install supervisor
 
 RUN yum install -y wget make gcc-c++ glibc automake autoconf
 
-#install memcached
+#*******************************************#
+#install memcached                          #
+#*******************************************#
 RUN yum install -y libevent-devel
 WORKDIR /usr/local/src
 RUN wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
@@ -28,7 +30,9 @@ RUN make
 RUN make install 
 
 
-#install php
+#*******************************************#
+#install php                                #
+#*******************************************#
 RUN yum -y  install libtool  libmcrypt-devel mhash-devel \
                     libxslt-devel  libjpeg libjpeg-devel \
                     libpng libpng-devel freetype freetype-devel \
@@ -66,6 +70,9 @@ RUN make
 RUN make install
 RUN cp php.ini-development  /usr/local/php/lib/php.ini
 
+#*******************************************#
+#install nginx                              #
+#*******************************************#
 RUN yum install pcre-devel openssl-devel zlib zlib-devel
 WORKDIR /usr/local/src/
 RUN wget http://nginx.org/download/nginx-1.9.9.tar.gz
@@ -77,6 +84,20 @@ RUN ./configure --prefix=/usr/local/nginx  \
                 --with-http_stub_status_module
 RUN make 
 RUN make install
+
+
+#*******************************************#
+#install php extension                      #
+#*******************************************#
+WORKDIR /usr/local/src/
+RUN wget http://pecl.php.net/get/memcache-2.2.7.tgz
+RUN tar zxvf  memcache-2.2.7.tgz
+WORKDIR /usr/local/src/memcache-2.2.7
+RUN /usr/local/php/bin/phpize
+RUN ./configure --with-php-config=/usr/local/php/bin/php-config
+RUN make
+RUN make install 
+
 
 #remove install packages
 WORKDIR /usr/local/src/
