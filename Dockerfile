@@ -98,6 +98,16 @@ RUN ./configure --with-php-config=/usr/local/php/bin/php-config
 RUN make
 RUN make install 
 
+#*******************************************#
+#load config                                #
+#*******************************************#
+RUN yum install unzip -y
+WORKDIR /usr/local/src
+RUN wget https://github.com/jianwei/tuniulib/archive/master.zip
+RUN unzip master.zip
+
+
+
 
 #remove install packages
 WORKDIR /usr/local/src/
