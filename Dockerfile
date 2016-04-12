@@ -109,6 +109,7 @@ RUN cp /usr/local/src/php-dev-master/conf/supervisord/supervisord.conf /etc/supe
 RUN cp /usr/local/src/php-dev-master/conf/php/php-fpm.conf  /usr/local/php/etc/
 RUN cp /usr/local/src/php-dev-master/conf/php/php.ini  /usr/local/php/lib/
 RUN cp /usr/local/src/php-dev-master/conf/nginx/nginx.conf  /usr/local/nginx/conf/
+RUN cp /usr/local/src/php-dev-master/boot/start.sh  /etc/init.d/start.sh
 
 
 
@@ -119,7 +120,7 @@ RUN rm -fr *
 WORKDIR /
 
 EXPOSE 22 80 443
-#CMD supervisord  -c /etc/supervisord.conf
+CMD ["/etc/init.d/start.sh"]
 #CMD ["/usr/bin/supervisord" "/etc/supervisord.conf"]
 
 #shell docker run -it -v /root/conf:/mnt/www:ro  --privileged=true   a2bc51f2efb6
