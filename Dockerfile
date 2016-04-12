@@ -118,6 +118,8 @@ WORKDIR /usr/local/src/
 RUN rm -fr *
 WORKDIR /
 
-CMD supervisord  -c /etc/supervisord.conf
+EXPOSE 22 80 443
+#CMD supervisord  -c /etc/supervisord.conf
+CMD ["supervisord -c /etc/supervisord.conf"]
 
 #shell docker run -it -v /root/conf:/mnt/www:ro  --privileged=true   a2bc51f2efb6
