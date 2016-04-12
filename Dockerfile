@@ -68,18 +68,18 @@ RUN cp php.ini-development  /usr/local/php/lib/php.ini
 
 RUN yum install pcre-devel openssl-devel zlib zlib-devel
 WORKDIR /usr/local/src/
-RUN wget http://nginx.org/download/nginx-1.9.9.tar.gz
-RUN tar -zxvf nginx-1.9.9.tar.gz
-WORKDIR /usr/local/src/nginx-1.9.9
-RUN ./configure --prefix=/usr/local/nginx  \
-                --with-http_ssl_module \
-                --with-pcre\
-                --with-http_stub_status_module
-RUN make 
-RUN make install
+#RUN wget http://nginx.org/download/nginx-1.9.9.tar.gz
+#RUN tar -zxvf nginx-1.9.9.tar.gz
+#WORKDIR /usr/local/src/nginx-1.9.9
+#RUN ./configure --prefix=/usr/local/nginx  \
+#                --with-http_ssl_module \
+#                --with-pcre\
+#                --with-http_stub_status_module
+#RUN make 
+#RUN make install
 
 #remove install packages
-WORKDIR /usr/local/src/
+#WORKDIR /usr/local/src/
 RUN rm -fr *
 WORKDIR /
 
