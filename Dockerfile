@@ -103,7 +103,7 @@ RUN make install
 #*******************************************#
 RUN yum install unzip -y
 WORKDIR /usr/local/src
-RUN wget https://github.com/jianwei/tuniulib/archive/master.zip
+RUN wget https://github.com/jianwei/php-dev/archive/master.zip
 RUN unzip master.zip
 
 
