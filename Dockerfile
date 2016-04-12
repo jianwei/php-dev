@@ -106,6 +106,9 @@ WORKDIR /usr/local/src
 RUN wget https://github.com/jianwei/php-dev/archive/master.zip
 RUN unzip master.zip
 RUN cp /usr/local/src/php-dev-master/conf/supervisord/supervisord.conf /etc/supervisord.conf
+RUN cp /usr/local/src/php-dev-master/conf/php/php-fpm.conf  /usr/local/php/etc/
+RUN cp /usr/local/src/php-dev-master/conf/php/php.ini  /usr/local/php/lib/
+RUN cp /usr/local/src/php-dev-master/conf/nginx/nginx.conf  /usr/local/nginx/conf/
 
 
 
