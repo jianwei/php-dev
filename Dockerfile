@@ -125,3 +125,5 @@ EXPOSE 22 80 443
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
 #shell docker run -it -v /root/conf:/mnt/www:ro  --privileged=true   a2bc51f2efb6
+#docker run --detach=true -p 81:80 -h nginx --name echo  registry.aliyuncs.com/carlos_chen/php-dev:2.0
+
