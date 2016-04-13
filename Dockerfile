@@ -103,7 +103,7 @@ RUN make install
 #*******************************************#
 RUN yum install unzip -y
 WORKDIR /usr/local/src
-RUN wget https://github.com/jianwei/php-dev/archive/master.zip?v=1 -O master.zip
+RUN wget https://github.com/jianwei/php-dev/archive/master.zip?v=2 -O master.zip
 RUN unzip master.zip
 RUN cp /usr/local/src/php-dev-master/conf/supervisord/supervisord.conf /etc/supervisord.conf
 RUN cp /usr/local/src/php-dev-master/conf/php/php-fpm.conf  /usr/local/php/etc/
