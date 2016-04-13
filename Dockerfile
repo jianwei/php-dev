@@ -120,8 +120,8 @@ RUN rm -fr *
 WORKDIR /
 
 EXPOSE 22 80 443
-RUN chmod 777  /etc/init.d/start.sh
-CMD  /etc/init.d/start.sh
-#CMD ["/usr/bin/supervisord" "/etc/supervisord.conf"]
+#RUN chmod 777  /etc/init.d/start.sh
+#CMD  /etc/init.d/start.sh
+CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
 #shell docker run -it -v /root/conf:/mnt/www:ro  --privileged=true   a2bc51f2efb6
